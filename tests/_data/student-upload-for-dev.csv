@@ -1,0 +1,6 @@
+ExternalId,Firstname,Lastname,Title,Date of birth,Address1,Address2,City,Zip,State,Country,PrimaryMobile,AlternateMobile,HomePhone,OfficePhone,PrimaryEmail,AlternateEmail,PrimaryMobileProvider,AlternateMobileProvider,Country,Income,Salary,Demo 1,First Name,Last Name,LN Name,item,IsActive,Education,Color Code
+MU001,Mukesh,Kumar,Mr,10-02-1980,Bangalore,Chennai,Chennai,560068,Karnataka,India,,,,,,,,,,,,,,,,,,BCA,10
+MU002,Rajan,Kumar,Mr,10-02-1981,Bangalore,Chennai,Chennai,560068,Karnataka,India,,,,,,,,,,,,,,,,,,MCA,20
+MU003,Rajan,Raj,Mr,10-02-1982,Bangalore,Chennai,Chennai,560068,Karnataka,India,,,,,,,,,,,,,,,,,,DCA,30
+MU004,Mukesh ,Raj,Mr,10-02-1983,Bangalore,Chennai,Chennai,560068,Karnataka,India,,,,,,,,,,,,,,,,,,BA,40
+MU005,Brajesh,Singh,Mr,10-02-1984,Bangalore,Chennai,Chennai,560068,Karnataka,India,,,,,,,,,,,,,,,,,,MA,50

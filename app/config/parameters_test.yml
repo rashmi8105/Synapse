@@ -1,0 +1,24 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: synapse
+    database_user: root
+    database_password: synapse
+    database_driver_slave_1: pdo_mysql
+    database_host_slave_1: 127.0.0.1
+    database_port_slave_1: null
+    database_name_slave_1: synapse
+    database_user_slave_1: root
+    database_password_slave_1: synapse
+    mailer_transport: smtp
+    debug_toolbar: false
+    debug_redirects: false
+    use_assetic_controller: true
+    cache.host: 127.0.0.1
+    queue.host: 127.0.0.1
+    tinyrbac_options:
+        enable_auth: true
+        cache_ttl: 600
+        longer_cache_ttl: 1800

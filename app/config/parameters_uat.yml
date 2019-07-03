@@ -1,0 +1,27 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: ebi-synapse-uat-db.internal.skyfactor.com
+    database_port: null
+    database_name: synapse
+    database_user: synapsemaster
+    database_password: 3wcoQS3tM0
+    database_driver_slave_1: pdo_mysql
+    database_host_slave_1: ebi-synapse-uat-db.internal.skyfactor.com
+    database_port_slave_1: null
+    database_name_slave_1: synapse
+    database_user_slave_1: synapsemaster
+    database_password_slave_1: 3wcoQS3tM0
+    mailer_transport: smtp
+    ses_host: localhost
+    ses_access_key: ~
+    ses_secret_key: ~
+    debug_toolbar: false
+    debug_redirects: false
+    use_assetic_controller: true
+    cache.host: synapse-uat-redis.internal.skyfactor.com
+    queue.host: synapse-uat-redis.internal.skyfactor.com
+    tinyrbac_options:
+        enable_auth: true
+        cache_ttl: 600
+        longer_cache_ttl: 1800

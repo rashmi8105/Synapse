@@ -1,0 +1,6 @@
+projectKey=Synapse:develop
+serverUrl=http://localhost:9000
+serverVersion=6.4.0.25310
+dashboardUrl=http://localhost:9000/dashboard/index/Synapse:develop
+ceTaskId=AWFuskpKN5Y4aiwDQHpx
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWFuskpKN5Y4aiwDQHpx

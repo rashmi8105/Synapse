@@ -1,0 +1,14 @@
+<?php
+require_once 'SynapseTestHelper.php';
+use Synapse\RestBundle\Entity\CreatePasswordDto;
+use GuzzleHttp\json_decode;
+class PasswordCest extends SynapseTestHelper
+{
+	private $token;
+    private $email;
+    
+    public function _before (ApiTester $I)
+    {
+    	$this->token = $this->authenticate($I);
+        $this->email = "bipinbihari.pradhan@techmahindra.com";    
+    }

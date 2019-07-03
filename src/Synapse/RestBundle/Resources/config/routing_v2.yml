@@ -1,0 +1,3 @@
+synapse_rest_courses_v2:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\V2\\CoursesController"

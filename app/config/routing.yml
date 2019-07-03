@@ -1,0 +1,93 @@
+synapse_authentication:
+    resource: "@SynapseAuthenticationBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_oauth_server_token:
+    resource: "token.yml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"
+
+NelmioApiDocBundle:
+   resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+   prefix:   /api/doc
+
+#BCCResqueBundle:
+#    resource: "@BCCResqueBundle/Resources/config/routing.xml"
+#    prefix:   /api/resque
+
+_synapse_rest:
+    resource: "@SynapseRestBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_academic_update:
+    resource: "@SynapseAcademicUpdateBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_help:
+    resource: "@SynapseHelpBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_campus_resource:
+    resource: "@SynapseCampusResourceBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_storage:
+    resource: "@SynapseStorageBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_risk:
+    resource: "@SynapseRiskBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_static_list:
+    resource: "@SynapseStaticListBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_pdf:
+    resource: "@SynapseRestBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_calendar:
+    resource: "@SynapseCalendarBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+    
+_synapse_authentication:
+    resource: "@SynapseAuthenticationBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+_synapse_studentbulkaction:
+    resource: "@SynapseStudentBulkActionsBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+_synapse_reports:
+    resource: "@SynapseReportsBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_survey:
+    resource: "@SynapseSurveyBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_tools:
+    resource: "@SynapseMapworksToolBundle/Resources/config/routing.yml"
+    prefix:   /api/v1
+
+_synapse_academic_update_v2:
+    resource: "@SynapseAcademicUpdateBundle/Resources/config/routing_v2.yml"
+    prefix:   /api/academicupdates
+
+_synapse_person_v2:
+    resource: "@SynapsePersonBundle/Resources/config/routing_v2.yml"
+    prefix:   /api
+
+_synapse_academic_year_v2:
+    resource: "@SynapseAcademicBundle/Resources/config/routing_v2.yml"
+    prefix:   /api
+
+_synapse_group_v2:
+    resource: "@SynapseGroupBundle/Resources/config/routing_v2.yml"
+    prefix:   /api
+
+# THIS MUST REMAIN LAST IN THE FILE. Moving this statement any higher will cause APIs to be routed here that shouldn't be.
+_synapse_rest_v2:
+    resource: "@SynapseRestBundle/Resources/config/routing_v2.yml"
+    prefix:   /api

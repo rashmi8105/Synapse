@@ -1,0 +1,39 @@
+DELIMITER **
+DROP PROCEDURE IF EXISTS `Intent_Leave_Null_Fixer`**
+CREATE DEFINER =`synapsemaster`@`%` PROCEDURE `Intent_Leave_Null_Fixer`()
+    BEGIN
+
+        -- Since this is fixing nulls and this is desirable even if the record is deleted
+        -- Not checking soft deletion
+        WHILE (SELECT
+                   1
+               FROM
+                   person p
+                   INNER JOIN org_person_student ops
+                       ON p.organization_id = ops.organization_id AND p.id = ops.person_id
+               WHERE
+                   intent_to_leave IS NULL
+               LIMIT 1) = 1
+        DO
+            UPDATE
+                person AS per
+                INNER JOIN (SELECT
+                                p.id AS person_id
+                            FROM
+                                person p
+                                INNER JOIN org_person_student ops
+                                    ON p.organization_id = ops.organization_id
+                                       AND p.id = ops.person_id
+                            WHERE
+                                p.intent_to_leave IS NULL
+                            ORDER BY p.id
+                            LIMIT 1000) AS t
+                    ON per.id = t.person_id
+            SET
+                per.intent_to_leave = 5,
+                per.intent_to_leave_update_date = CURRENT_TIMESTAMP();
+
+        END WHILE;
+
+
+    END**

@@ -1,0 +1,3 @@
+synapse_rest_studentbulkactions:
+  type: rest
+  resource: "Synapse\StudentBulkActionsBundle\Controller\\StudentBulkActionsController"

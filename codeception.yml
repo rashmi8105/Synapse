@@ -1,0 +1,124 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 2048M
+modules:
+    config:
+        Db:
+            dsn: ''
+            user: ''
+            password: ''
+            dump: tests/_data/synapse_master_db_20oct2014.sql
+coverage:
+    enabled: true
+    include:
+        - src/*
+
+    exclude:
+        - src/Synapse/AcademicBundle/Controller/*
+        - src/Synapse/AcademicBundle/Entity/*
+        - src/Synapse/AcademicBundle/EntityDto/*
+        - src/Synapse/AcademicBundle/Resources/*
+        - src/Synapse/AcademicUpdateBundle/Controller/*
+        - src/Synapse/AcademicUpdateBundle/Entity/*
+        - src/Synapse/AcademicUpdateBundle/EntityDto/*
+        - src/Synapse/AcademicUpdateBundle/Resources/*
+        - src/Synapse/AcademicUpdateBundle/Job/*
+        - src/Synapse/AuditTrailBundle/DependencyInjection/*
+        - src/Synapse/AuditTrailBundle/Entity/*
+        - src/Synapse/AuditTrailBundle/EventListener/*
+        - src/Synapse/AuditTrailBundle/Job/*
+        - src/Synapse/AuditTrailBundle/Resources/*
+        - src/Synapse/AuthenticationBundle/Controller/*
+        - src/Synapse/AuthenticationBundle/DependencyInjection/*
+        - src/Synapse/AuthenticationBundle/Entity/*
+        - src/Synapse/AuthenticationBundle/EntityDto/*
+        - src/Synapse/AuthenticationBundle/Tests/*
+        - src/Synapse/CalendarBundle/Controller/*
+        - src/Synapse/CalendarBundle/Entity/*
+        - src/Synapse/CalendarBundle/EntityDto/*
+        - src/Synapse/CalendarBundle/Job/*
+        - src/Synapse/CalendarBundle/Resources/*
+        - src/Synapse/CampusConnectionBundle/EntityDto/*
+        - src/Synapse/CampusResourceBundle/Controller/*
+        - src/Synapse/CampusResourceBundle/Entity/*
+        - src/Synapse/CampusResourceBundle/EntityDto/*
+        - src/Synapse/CampusResourceBundle/Resources/*
+        - src/Synapse/CoreBundle/Command/*
+        - src/Synapse/CoreBundle/DependencyInjection/*
+        - src/Synapse/CoreBundle/DTO/*
+        - src/Synapse/CoreBundle/Entity/*
+        - src/Synapse/CoreBundle/job/*
+        - src/Synapse/CoreBundle/Listener/*
+        - src/Synapse/CoreBundle/Resources/*
+        - src/Synapse/DataBundle/EntityDto/*
+        - src/Synapse/GatewayBundle/Controller/*
+        - src/Synapse/GatewayBundle/DependencyInjection/*
+        - src/Synapse/GatewayBundle/Resources/*
+        - src/Synapse/GroupBundle/Controller/*
+        - src/Synapse/GroupBundle/DTO/*
+        - src/Synapse/HelpBundle/Controller/*
+        - src/Synapse/HelpBundle/Entity/*
+        - src/Synapse/HelpBundle/EntityDto/*
+        - src/Synapse/HelpBundle/Resources/*
+        - src/Synapse/MapworksToolBundle/Controller/*
+        - src/Synapse/MapworksToolBundle/Entity/*
+        - src/Synapse/MapworksToolBundle/Resources/*
+        - src/Synapse/MultiCampusBundle/Entity/*
+        - src/Synapse/MultiCampusBundle/EntityDto/*
+        - src/Synapse/MultiCampusBundle/Job/*
+        - src/Synapse/PdfBundle/Entity/*
+        - src/Synapse/PersonBundle/Controller/*
+        - src/Synapse/PersonBundle/DTO/*
+        - src/Synapse/PersonBundle/Resources/*
+        - src/Synapse/ReportsBundle/Command/*
+        - src/Synapse/ReportsBundle/Controller/*
+        - src/Synapse/ReportsBundle/Entity/*
+        - src/Synapse/ReportsBundle/EntityDto/*
+        - src/Synapse/ReportsBundle/Job/*
+        - src/Synapse/ReportsBundle/Resources/*
+        - src/Synapse/RestBundle/Controller/*
+        - src/Synapse/RestBundle/DependencyInjection/*
+        - src/Synapse/RestBundle/DTO/*
+        - src/Synapse/RestBundle/Entity/*
+        - src/Synapse/RestBundle/EventListener/*
+        - src/Synapse/RestBundle/Resources/*
+        - src/Synapse/RiskBundle/Command/*
+        - src/Synapse/RiskBundle/Controller/*
+        - src/Synapse/RiskBundle/Entity/*
+        - src/Synapse/RiskBundle/EntityDto/*
+        - src/Synapse/RiskBundle/Job/*
+        - src/Synapse/RiskBundle/Resources/*
+        - src/Synapse/SearchBundle/Entity/*
+        - src/Synapse/SearchBundle/EntityDto/*
+        - src/Synapse/SearchBundle/Job/*
+        - src/Synapse/StaticListBundle/Controller/*
+        - src/Synapse/StaticListBundle/Entity/*
+        - src/Synapse/StaticListBundle/EntityDto/*
+        - src/Synapse/StaticListBundle/Job/*
+        - src/Synapse/StorageBundle/Controller/*
+        - src/Synapse/StorageBundle/DependencyInjection/*
+        - src/Synapse/StorageBundle/Resources/*
+        - src/Synapse/StorageBundle/Tests/*
+        - src/Synapse/StudentBulkActionsBundle/Controller/*
+        - src/Synapse/StudentBulkActionsBundle/EntityDto/*
+        - src/Synapse/StudentBulkActionsBundle/Resources/*
+        - src/Synapse/StudentViewBundle/EntityDto/*
+        - src/Synapse/SurveyBundle/Controller/*
+        - src/Synapse/SurveyBundle/Entity/*
+        - src/Synapse/SurveyBundle/EntityDto/*
+        - src/Synapse/SurveyBundle/Resources/*
+        - src/Synapse/UploadBundle/Command/*
+        - src/Synapse/UploadBundle/DependencyInjection/*
+        - src/Synapse/UploadBundle/Entity/*
+        - src/Synapse/UploadBundle/EntityDto/*
+        - src/Synapse/UploadBundle/Job/*
+        - src/Synapse/UploadBundle/Resources/*
+
+

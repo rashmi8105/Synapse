@@ -1,0 +1,3 @@
+synapse_rest_storage:
+  type: rest
+  resource: "Synapse\StorageBundle\Controller\\StorageController"

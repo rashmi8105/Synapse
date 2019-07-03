@@ -1,0 +1,45 @@
+<!DOCTYPE HTML> <html ng-app="synapseWebApp" class="no-js" lang="en"> <head ng-controller="NavCtrl"> <meta charset="utf-8"> <title ng-bind="browser_title"></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/vendor.ae7dda3d.css"> <link rel="stylesheet" href="styles/main.ab17c395.css">  <!-- Bug ID : 8303  QaitDevlabs --> <body ng-class="{'report-body':isReportPrintActive(), 'search-body':isSearchPrintActive()}" ng-app="synapseWebApp" ng-controller="SynapseActivityChange" ng-mousemove="handleActivityChange()" ng-keyup="handleActivityChange()"> <!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]--> <!-- Add your site or application content here --> <div ng-if="!(isSessionActive() && isCurrentRoleStudent())" class="" ng-class="{'container-fluid nopadding':!(isSessionActive() && isCurrentRoleStudent())}" ng-controller="NavCtrl"> <div class="proxy-bar-holder" ng-if="!isLoginPageActive() && !isCalendarIntegrationPageActive() && isProxyMode()" ng-include="'partials/global/proxy-mode.html'"> </div> <!-- Proxy div starts --> <!-- Proxy div ends --> <a tabindex="1" role="link" onclick="angular.element('#main').focus()" href="javascript:void(0);" class="skip">{{'INDEX_PAGE_SKIP_TO_MAIN_CONTENT'|translate}}</a> <div class="main-header" ng-if="!(isLoginPageActive() || isReportPrintActive() || isCalendarIntegrationPageActive()) && !isCurrentRoleStudent()" ng-include="'partials/global/header.html'" ng-style="{'margin-top':(isProxyMode() ? 74 : 0)}"> </div> <div> <div ng-if="!isReportPrintActive()" ng-class="{'container-fluid main_cont':isCurrentRoleStudent(),'body-content':isSessionActive(),'bodycontentduringproxy': !isLoginPageActive() && isProxyMode()}" class="rwd-bodycntent" ng-view="" autoscroll id="main" tabindex="-1" role="main"> </div> <div ng-if="isReportPrintActive()" ng-view="" autoscroll id="main" tabindex="-1" role="main"> </div> </div> <div ng-if="!(isLoginPageActive() || isReportPrintActive() || isCalendarIntegrationPageActive())" ng-include="'partials/global/footer.html'"> </div> </div> <div ng-if="isSessionActive() && isCurrentRoleStudent()" ng-controller="NavCtrl"> <div class="proxy-bar-holder" ng-if="!isLoginPageActive() && isProxyMode()" ng-include="'partials/global/proxy-mode.html'"></div> <div class="main-header" ng-include="'partials/global/studentsMenu.html'" ng-style="{'margin-top':(isProxyMode() ? 74 : 0)}"></div> <div class="container-fluid"> <div ng-style="{'margin-top':(isProxyMode() ? 195 : 121)}" class="body-content" ng-view="" autoscroll role="main"></div> </div> <div ng-if="isSessionActive() && isCurrentRoleStudent()" class="container-fluid student-footer"> <div class="row"> <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footer_logo"> <img width="100" height="44" src="/images/icon/skyfactor-logo/skyfactor-logo.png" alt="Skyfactor Logo"> <a ng-click="downloadPrivacy()" ng-enter="downloadPrivacy()" role="link" href="" tabindex="13" class="privacy-policy pull-right" title="Privacy Policy">Privacy Policy</a> </div> </div> </div> </div> <p id="mac_Accessibility_fix" class="visuallyhidden" role="alert" aria-atomic="true" aria-relevant="all" aria-live="assertive"></p> <!--[if lt IE 10]>
+<script src="//cdn.rawgit.com/jpillora/xdomain/0.6.17/dist/xdomain.min.js"></script>
+<script>
+  xdomain.slaves({
+    'http://synapse-qa-backend.mnv-tech.com': '/proxy.html',
+    'http://synapse-staging-backend.mnv-tech.com': '/proxy.html',
+    'http://synapse-uat-backend.mnv-tech.com': '/proxy.html'
+  });
+</script>
+<![endif]--> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>(function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-1936464-12');
+  ga('send', 'pageview');</script> <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script> <!--script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]--> <script src="scripts/vendor.852f5532.js"></script> <!-- bootstrap templates JS customized by QAIT for fixing a bootstrap typeahead issue with Chrome --> <!--<script src="scripts/libs/bootstrap/3.1.1/ui-bootstrap-tpls.js"></script>--> <script src="scripts/scripts.03ca36d1.js"></script> <script type="text/ng-template" id="custom/pager"><div id="mac-pagination-container" class="text-center">
+    <ul class="pagination ng-table-pagination" role="navigation" aria-label="Pagination" ng-if="pages.length > 1">
+      <li ng-class="{'disabled': !page.active}" ng-repeat="page in pages" ng-switch="page.type">
+        <a class="pager-text" ng-switch-when="prev" ng-click="params.page(page.number)" aria-hidden="{{!page.active}}"
+           href="">Prev<span class="sr-only">page</span></a>
+        <a ng-switch-when="first" class="page-number" ng-click="params.page(page.number)" aria-hidden="{{!page.active}}"
+           href=""><span ng-bind="page.number"></span></a>
+        <a ng-switch-when="page" class="page-number" ng-click="params.page(page.number)" aria-hidden="{{!page.active}}"
+           href=""><span ng-bind="page.number"></span></a>
+        <a ng-switch-when="more" ng-click="params.page(page.number)" aria-hidden="{{!page.active}}" href="">&#8230;</a>
+        <a ng-switch-when="last" class="page-number" ng-click="params.page(page.number)" aria-hidden="{{!page.active}}"
+           href=""><span ng-bind="page.number"></span></a>
+        <a class="pager-text" ng-switch-when="next" ng-click="params.page(page.number)" aria-hidden="{{!page.active}}"
+           href="">Next<span class="sr-only">page</span></a>
+      </li>
+    </ul>
+  </div></script> <script type="text/ng-template" id="custom/countPager"><div ng-include="'partials/directives/page-count-dropdown-default.html'"></div></script>  

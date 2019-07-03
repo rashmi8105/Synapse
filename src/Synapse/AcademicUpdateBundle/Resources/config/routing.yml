@@ -1,0 +1,3 @@
+synapse_rest_au:
+  type: rest
+  resource: "Synapse\AcademicUpdateBundle\Controller\\AcademicUpdateController"

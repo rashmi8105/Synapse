@@ -1,0 +1,496 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        #closure:
+        #    jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+        #yui_css:
+        #    jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        wrapper_class: 'Facile\DoctrineMySQLComeBack\Doctrine\DBAL\Connection'
+        driver_class: 'Facile\DoctrineMySQLComeBack\Doctrine\DBAL\Driver\PDOMySql\Driver'
+        options:
+            x_reconnect_attempts: 3
+        mapping_types:
+            bit: boolean
+            enum: string
+        server_version: 5.6
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        # path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+        metadata_cache_driver:
+            type: service
+            id: synapse_redis_cache
+        query_cache_driver:
+            type: service
+            id: synapse_redis_cache
+        result_cache_driver:
+            type: service
+            id: synapse_redis_cache
+        mappings:
+            gedmo_translatable:
+                type: annotation
+                prefix: Gedmo\Translatable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+            gedmo_translator:
+                type: annotation
+                prefix: Gedmo\Translator\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+            gedmo_loggable:
+                type: annotation
+                prefix: Gedmo\Loggable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+            gedmo_tree:
+                type: annotation
+                prefix: Gedmo\Tree\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                is_bundle: false
+
+        filters:
+            softdeleteable:
+                class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                enabled: true
+
+doctrine_migrations:
+    dir_name: %kernel.root_dir%/DoctrineMigrations
+    namespace: Synapse\Migrations
+    table_name: migration_versions
+    name: Synapse Migrations
+
+doctrine_cache:
+    aliases:
+        cache_redis: synapse_redis_cache
+
+    providers:
+        synapse_redis_cache:
+            redis:
+                host: %cache.host%
+            namespace: synapse_ns
+            aliases:
+                - synapse_redis_cache
+
+# SNC Redis Configuration
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://%cache.host%
+            logging: false
+    swiftmailer:
+        client: default
+        key: swiftmailer
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:
+        type: service
+        id: snc_redis.swiftmailer.spool
+
+# Doctrine Extensions Configuration
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            timestampable: true
+            softdeleteable: true
+
+# Friends Of Symfony Rest
+fos_rest:
+    versioning:
+        enabled: true
+        default_version: 1.0
+    routing_loader:
+        default_format: json
+        include_format: false
+    format_listener:
+        rules:
+            - { path: '^/oauth/v2', priorities: ['html'], fallback_format: 'html', prefer_extension: false }
+            - { path: '^/api/resque', priorities: ['html'], fallback_format: 'json', prefer_extension: false }
+            - { path: '^/api', priorities: ['json'], fallback_format: 'json', prefer_extension: false }
+    param_fetcher_listener: true
+    body_listener: true
+    body_converter:
+        enabled:              true
+        validate:             true
+        validation_errors_argument:  validationErrors
+    disable_csrf_role: ROLE_API
+    view:
+        view_response_listener: 'force'
+        force_redirects:
+          html: true
+        formats:
+            jsonp: false
+            json: true
+            html: true
+            xml: false
+            rss: false
+        failed_validation: HTTP_BAD_REQUEST
+        mime_types:
+            json: ['application/json', 'application/x-json', 'application/vnd.api+json', 'application/json;version=2.0']
+    access_denied_listener:
+        json: true
+    exception:
+        codes:
+            'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': HTTP_NOT_FOUND
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': HTTP_NOT_FOUND
+            'Doctrine\ORM\OptimisticLockException': HTTP_CONFLICT
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+            'Symfony\Component\HttpKernel\Exception\NotFoundHttpException': true
+
+fos_oauth_server:
+    db_driver: orm
+    client_class:        Synapse\CoreBundle\Entity\Client
+    access_token_class:  Synapse\CoreBundle\Entity\AccessToken
+    refresh_token_class: Synapse\CoreBundle\Entity\RefreshToken
+    auth_code_class:     Synapse\CoreBundle\Entity\AuthCode
+    service:
+      user_provider: synapse.user.provider
+      options:
+        supported_scopes: user
+
+
+# Sensio Extras
+sensio_framework_extra:
+    view:    { annotations: true }
+    router:  { annotations: true }
+    request: { converters: true }
+
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [SynapseCoreBundle, SynapseRestBundle]
+        directories: ["%kernel.root_dir%/../src"]
+
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: []
+        allow_headers: []
+        allow_methods: []
+        expose_headers: []
+        max_age: 0
+        hosts: []
+    paths:
+        '^/api/':
+            allow_origin: ['*']
+            allow_headers: ['Authorization', 'Content-Type']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+        '^/oauth/':
+            allow_origin: ['*']
+            allow_headers: ['Authorization', 'Content-Type']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+        '^/':
+            allow_origin: ['*']
+            allow_headers: ['Authorization', 'Content-Type']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+            hosts: ['^api\.']
+services:
+    synapse.aws_s3.client:
+        class: Aws\S3\S3Client
+        factory_class: Aws\S3\S3Client
+        factory_method: 'factory'
+        arguments:
+            -
+                key: %amazon_s3.key%
+                secret: %amazon_s3.secret%
+                region: %amazon_s3.region%
+    synapse.security.action_listener:
+        class: Synapse\CoreBundle\Security\Authorization\TinyRbac\AuthListener
+        arguments: []
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+    synapse.request:
+        class: Synapse\RestBundle\EventListener\ProxySubscriber
+        arguments: ["@service_container"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+    synapse.auditor:
+        class: Synapse\AuditTrailBundle\EventListener\AuditorSubscriber
+        arguments: ["@service_container"]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+knp_gaufrette:
+    adapters:
+        student_uploads:
+            local:
+                  directory: '/vagrant/synapse-backend/student-uploads'
+        factor_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'factor-uploads'
+        faculty_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'faculty-uploads'
+        group_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'group-uploads'
+        course_uploads:
+            local:
+                  directory: '/vagrant/synapse-backend/course-uploads'
+        course_student_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'course-student'
+        course_faculty_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'course-faculty'
+        talking_points_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'talking-points'
+        student_photos:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'student-photo'
+        roaster_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'roaster-uploads'
+        academic_update_uploads:
+            local:
+                directory: '/vagrant/synapse-backend/academic-uploads'
+        help_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'help-uploads'
+        survey_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'survey-uploads'
+        staticlist_uploads:
+            aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'staticlist-uploads'
+        risk_uploads:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'risk-uploads'
+        calendar_uploads:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'calendar-uploads'
+        student_reports_uploads:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'student-reports'
+        report_downloads:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                   directory: 'report-downloads'
+        report_calculation:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                    directory: 'report-calculation'
+        policy:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                   directory: 'policy'
+        reports_master:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                   directory: 'reports-master'
+        export_csvs:
+             aws_s3:
+                service_id: 'synapse.aws_s3.client'
+                bucket_name: 'ebi-synapse-bucket'
+                options:
+                   directory: 'export-csvs'
+    filesystems:
+        student_uploads:
+            adapter: student_uploads
+        factor_uploads:
+            adapter: factor_uploads
+        faculty_uploads:
+            adapter: faculty_uploads
+        group_uploads:
+            adapter: group_uploads
+        course_uploads:
+            adapter: course_uploads
+        course_student_uploads:
+            adapter: course_student_uploads
+        course_faculty_uploads:
+            adapter: course_faculty_uploads
+        talking_points_uploads:
+            adapter: talking_points_uploads
+        student_photos:
+            adapter: student_photos
+        roaster_uploads:
+            adapter: roaster_uploads
+        academic_update_uploads:
+            adapter: academic_update_uploads
+        help_uploads:
+            adapter: help_uploads
+        survey_uploads:
+            adapter: survey_uploads
+        staticlist_uploads:
+            adapter: staticlist_uploads
+        risk_uploads:
+            adapter: risk_uploads
+        calendar_uploads:
+            adapter: calendar_uploads
+        student_reports_uploads:
+            adapter: student_reports_uploads
+        report_downloads:
+            adapter: report_downloads
+        report_calculation:
+            adapter: report_calculation
+        policy:
+            adapter: policy
+        reports_master:
+            adapter: reports_master
+        export_csvs:
+            adapter: export_csvs
+    stream_wrapper:
+        protocol: data
+        filesystems:
+            student_uploads: student_uploads
+            factor_uploads: factor_uploads
+            faculty_uploads: faculty_uploads
+            group_uploads: group_uploads
+            course_uploads: course_uploads
+            course_student_uploads: course_student_uploads
+            course_faculty_uploads: course_faculty_uploads
+            talking_points_uploads: talking_points_uploads
+            student_photos: student_photos
+            academic_update_uploads: academic_update_uploads
+            help_uploads: help_uploads
+            roaster_uploads: roaster_uploads
+            survey_uploads: survey_uploads
+            staticlist_uploads: staticlist_uploads
+            risk_uploads: risk_uploads
+            calendar_uploads: calendar_uploads
+            student_reports_uploads: student_reports_uploads
+            report_downloads: report_downloads
+            report_calculation: report_calculation
+            reports_master: reports_master
+            policy: policy
+            export_csvs: export_csvs
+            student_reports: student_reports_uploads
+bcc_resque:
+    redis:
+        host: %queue.host%
+#knp_snappy
+knp_snappy:
+    pdf:
+       enabled:    true
+       binary:     /usr/local/bin/wkhtmltopdf
+       options:    []
+    image:
+       enabled:    true
+       binary:     /usr/local/bin/wkhtmltoimage
+       options:    []
+
+monolog:
+    channels: ['api']
+    handlers:
+        notice:
+            level: notice
+            type: stream
+            path: "../app/logs/api.log"
+            channels: ['api']
+

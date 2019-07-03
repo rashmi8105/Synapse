@@ -1,0 +1,109 @@
+[
+    {
+        "name": "Bruce Miller",
+        "status": "active",
+        "view_level": "aggregate only",
+        "risk_indicator": false,
+        "intent_to_leave": false,
+        "profile_blocks": {
+            "demographic": true,
+            "financial": true,
+            "grades": true,
+            "high_school": true,
+            "high_school_test_scores": false,
+            "outcome": false,
+            "registration": false,
+            "system_data": false
+        },
+        "survey_blocks": {
+            "academic_behaviors": true,
+            "academic_content_skills": false,
+            "academic_education_plans": true,
+            "academic_mindset": true,
+            "academic_satisfaction": false,
+            "academic_transition": true,
+            "career_services": false,
+            "connections_and_involvement": true,
+            "departing_institution": true
+        },
+        "features": {
+            "notes": {
+                "public": {
+                    "view": true,
+                    "create": true
+                },
+                "private": {
+                    "create": false
+                },
+                "teams": {
+                    "view": true,
+                    "create": false
+                }
+            },
+            "contacts": {
+                "public": {
+                    "view": true,
+                    "create": true
+                },
+                "private": {
+                    "create": true
+                },
+                "teams": {
+                    "view": true,
+                    "create": true
+                }
+            },
+            "booking": {
+                "public": {
+                    "view": true,
+                    "create": true
+                },
+                "private": {
+                    "create": false
+                },
+                "teams": {
+                    "view": true,
+                    "create": false
+                }
+            },
+            "direct_referrals": {
+                "public": {
+                    "view": true,
+                    "create": true
+                },
+                "private": {
+                    "create": false
+                },
+                "teams": {
+                    "view": true,
+                    "create": false
+                }
+            },
+            "referral_routing": {
+                "public": {
+                    "view": true,
+                    "create": true
+                },
+                "private": {
+                    "create": false
+                },
+                "teams": {
+                    "view": true,
+                    "create": false
+                }
+            }
+        },
+        "reporting": {
+            "our_student": true,
+            "our_map_works_activity": false
+        },
+        "dashboard_items": {
+            "my_students_high_priority_students": false,
+            "todays_agenda": false,
+            "my_teams_activities": false,
+            "referrals": true,
+            "top_issues": false,
+            "survey_completion": true
+        }
+    }
+]

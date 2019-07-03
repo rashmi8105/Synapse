@@ -1,0 +1,18 @@
+{
+    "UniqueCourseSectionId": "CSecID361",
+    "CourseNameID": "subCode553CNumber184",
+    "SectionNumber": "SecNum570",
+    "NumberOfCourses": "77",
+    "NumberofFaculty": "3",
+    "NumberofStudent": "3",
+    "AcademicUpdateName": "AcademicUpdateForCoordinator1490095751664",
+    "FacultyUniqueCourseSectionId": "CSecID899",
+    "FacultyCourseNameID": "subCode278CNumber672",
+    "FacultySectionNumber": "SecNum537",
+    "FacultyAcademicUpdateName": "AcademicUpdateForFaculty1489908490888",
+    "StudentUniqueCourseSectionId": "CSecID350",
+    "StudentCourseNameID": "subCode476CNumber360",
+    "StudentSectionNumber": "SecNum394",
+    "StudentCourseName": "StudentCourseName15",
+    "AUScenarioAcademicUpdate": "AcademicUpdateForAUScenario1490093891262"
+}

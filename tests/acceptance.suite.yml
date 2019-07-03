@@ -1,0 +1,161 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver
+        - \Helper\Acceptance
+        - Asserts
+    config:
+#        \Helper\Acceptance:
+#            browser: firefox
+#            url: 'http://synapse-uat.mnv-tech.com/#'
+          #  capabilities:
+          #       firefox_profile: 'C:\Users\Nupurgoel\Desktop\Parallel1\profile.zip.b64'
+        
+        WebDriver:
+            url: 'http://synapse-uat.mnv-tech.com/#'
+            browser: 'chrome'
+            #host: "10.0.9.62" 
+            #port: "4444”
+gherkin:
+    contexts: 
+        default:
+            - AcceptanceTester
+            - Step\Acceptance\StaticListStep
+            - Step\Acceptance\LoginStep
+            - Step\Acceptance\SystemAlertStep
+            - Step\Acceptance\OverviewStep
+            - Step\Acceptance\StudentUploadStep
+            - Step\Acceptance\PermissionStep
+            - Step\Acceptance\MyAccountstep
+            - Step\Acceptance\AppointmentStep
+            - Step\Acceptance\ISPStep
+            - Step\Acceptance\CampusResoucesStep
+            - Step\Acceptance\GroupStep
+            - Step\Acceptance\GroupUploadStep
+            - Step\Acceptance\HelpStep
+            - Step\Acceptance\InstituteSettingsStep
+            - Step\Acceptance\SettingsFeaturesStep
+            - Step\Acceptance\DashboardStep 
+            - Step\Acceptance\SearchStep
+            - Step\Acceptance\AboutTheStudentStep
+            - Step\Acceptance\CampusConnectionStep
+            - Step\Acceptance\NotificationStep
+            - Step\Acceptance\TeamStep
+            - Step\Acceptance\CoordinatorUserMgmtStep
+            - Step\Acceptance\SearchStep 
+            - Step\Acceptance\ManageStudentStep
+            - Step\Acceptance\ManageFacultyStep
+            - Step\Acceptance\CourseAndAcademicUpdateStep
+            - Step\Acceptance\PredefinedSearchStep
+            - Step\Acceptance\StudentCampusConnectionStep
+            - Step\Acceptance\StudentAppointmentStep 
+            - Step\Acceptance\StudentCampusResourceStep
+            - Step\Acceptance\StudentReferralsStep
+            - Step\Acceptance\ReportStep
+            - Step\Acceptance\StudentCourseAndAcademicUpdateStep
+            - Step\Acceptance\ActivityDownloadStep
+            - Step\Acceptance\Report\ReportStep
+            
+            
+env:
+#    docker:
+#        modules:
+#            config:
+#                WebDriver:
+#                    url: 'http://synapse-staging.mnv-tech.com/#'
+#                    browser: 'chrome'
+#                    wait: 3
+#                    host: "192.168.99.100"
+#                    port: "4444"
+#    remote-staging-chrome:
+#         modules:
+#            config:
+#                WebDriver:
+#                    url: 'http://synapse-staging.mnv-tech.com/#'
+#                    browser: 'chrome'
+#                    wait: 3
+#                    webStorageEnabled: true
+#                    host: "10.0.15.68"
+    uat-chrome:
+         modules:
+            config:
+                WebDriver:
+                    url: 'https://mapworks-uat.skyfactor.com/#/'
+                    browser: 'chrome'
+                    wait: 3
+                    webStorageEnabled: true 
+    uat-firefox:
+         modules:
+            config:
+                WebDriver:
+                    url: 'https://mapworks-uat.skyfactor.com/#/'
+                    browser: 'firefox'
+                    wait: 3
+                    webStorageEnabled: true                 
+    qa-chrome:
+         modules:
+            config:
+                WebDriver:
+                    url: 'https://mapworks-qa.skyfactor.com/#/'
+                    browser: 'chrome'
+                    wait: 3
+                    webStorageEnabled: true 
+    training-chrome:
+         modules:
+            config:
+                WebDriver:
+                    url: 'https://mapworks-training.skyfactor.com/#'
+                    browser: 'chrome'
+                    wait: 3
+                    webStorageEnabled: true
+    training-phantom:
+         modules:
+            config:
+                WebDriver:
+                    url: 'https://mapworks-training.skyfactor.com/#'
+                    browser: 'phantomjs'
+                    wait: 3
+                    webStorageEnabled: true      
+    uat-phantom:
+         modules:
+            config:
+                WebDriver:
+                    url: 'https://mapworks-uat.skyfactor.com/#'
+                    browser: 'phantomjs'
+                    wait: 3
+                    webStorageEnabled: true         
+                    
+    production-chrome:
+         modules:
+            config:
+                WebDriver:
+                    url: 'https://mapworks.skyfactor.com/#'
+                    browser: 'chrome'
+                    wait: 3
+                    webStorageEnabled: true                         
+               
+    local-chrome:
+         modules:
+            config:
+                WebDriver:
+                    url: 'http://10.0.21.243:9000/#'
+                    browser: 'chrome'
+                    wait: 3
+                    webStorageEnabled: true  
+                                  
+    sandbox-chrome:
+         modules:
+            config:
+                WebDriver:
+                    url: 'http://mapworks-sandbox.skyfactor.com/#'
+                    browser: 'chrome'
+                    wait: 3
+                    webStorageEnabled: true              
+                    
+                    

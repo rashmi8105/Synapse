@@ -1,0 +1,3 @@
+group_v2:
+  type: rest
+  resource: "Synapse\GroupBundle\Controller\V2\\GroupController"

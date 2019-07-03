@@ -1,0 +1,15 @@
+synapse_rest_calendar:
+  type: rest
+  resource: "Synapse\CalendarBundle\Controller\\CalendarController"
+synapse_rest_settings:
+  type: rest
+  resource: "Synapse\CalendarBundle\Controller\\SettingsController"
+synapse_rest_oauth:
+  type: rest
+  resource: "Synapse\CalendarBundle\Controller\\GoogleAuthController"
+synapse_rest_mapworks:
+  type: rest
+  resource: "Synapse\CalendarBundle\Controller\\MapworksController"
+synapse_rest_cronofy:
+  type: rest
+  resource: "Synapse\CalendarBundle\Controller\\CronofyController"

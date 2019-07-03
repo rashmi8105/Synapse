@@ -1,0 +1,12 @@
+[
+    {
+        "message": "semper",
+        "is_message_on": true,
+        "message_schedule": {
+            "start_date_time": "9/22/2013",
+            "end_date_time": "8/16/2014"
+        },
+        "scheduled_status": true,
+        "schedule_all_day": true
+    }
+]

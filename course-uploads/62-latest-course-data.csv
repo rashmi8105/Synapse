@@ -1,0 +1,14 @@
+YearId,TermId,UniqueCourseSectionId,SubjectCode,CourseNumber,SectionNumber,CourseName,CreditHours,CollegeCode,DeptCode,Days/Times,Location
+201718,Fall2017,1234,1,2,3,geo,,1,2,Thursday,noida
+201718,Fall2017,course1,course1,course1,course1,course1,1.00,course1,course1,,course1
+201718,Fall2017,987,9,9,9,Maths,2.00,2,2,4,qa
+201718,Fall2017,CourseSEC666,HOF2,666,2,Members677,4.00,Hall2,Fame2,"Every day, 9am-8pm",CantonOhio
+201718,Fall2017,12345,11,12,13,geoddddd,,1,2,Thursday,noida
+201718,Fall2017,2121GeorgeHalasDrNW,HOF,2121,2,Members101,4.00,Hall,Fame,"Every day, 9am-8pm",CantonOhio
+201718,qwerty,qwerty1,1,2,3,Geo,0.00,2,2,Thursday,noida
+201718,Fall2017,courseID,subcode,cournum,secnum,courname,2.00,clgcode,depcode,4,Location
+201718,Fall2017,212122GeorgeHalasDrNW,HOF2,212122,2,Members102,4.00,Hall2,Fame2,"Every day, 9am-8pm",CantonOhio
+201718,Fall2017,CourseSEC555,HOF2,555,2,Members555,4.00,Hall2,Fame2,"Every day, 9am-8pm",CantonOhio
+201718,Spring2018,Spring20189,1,2,1,2,1.00,2,1,thurs,noida
+201718,Spring2018,101003,1,2,1,1,2.00,3,3,thur,noida
+201920,qwerty2,qwerty3,1,2,3,Geo,0.00,2,2,Thursday,noida

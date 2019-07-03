@@ -1,0 +1,10 @@
+doctrine_cache:
+    aliases:
+        cache_redis: synapse_redis_cache
+
+    providers:
+        synapse_redis_cache:
+            type: redis
+            namespace: synapse_ns
+            aliases:
+                - synapse_redis_cache

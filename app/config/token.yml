@@ -1,0 +1,3 @@
+fos_oauth_server_token:
+    pattern: /oauth/v2/token
+    defaults: { _controller: SynapseRestBundle:SynapseToken:token }

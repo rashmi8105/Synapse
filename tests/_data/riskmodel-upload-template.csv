@@ -1,0 +1,3 @@
+ModelID,RiskVarName,Weight,Commands
+1,C_HSGradYear3,5,
+1,C_HSGradYear1,as,#clear

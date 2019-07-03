@@ -1,0 +1,3 @@
+synapse_academic_year_v2:
+  type: rest
+  resource: "Synapse\AcademicBundle\Controller\V2\\AcademicYearController"

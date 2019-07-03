@@ -1,0 +1,7 @@
+person_v2:
+  type: rest
+  resource: "Synapse\\PersonBundle\Controller\V2\\PersonController"
+
+contact_info_v2:
+  type: rest
+  resource: "Synapse\\PersonBundle\Controller\V2\\ContactInfoController"

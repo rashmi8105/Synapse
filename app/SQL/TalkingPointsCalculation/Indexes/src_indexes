@@ -1,0 +1,5 @@
+ALTER TABLE `synapse`.`org_talking_points`
+ADD INDEX `OPTM` (`organization_id` ASC, `person_id` ASC, `talking_points_id` ASC, `modified_at` ASC);
+ALTER TABLE `synapse`.`org_calc_flags_talking_point`
+DROP INDEX `calculated_at_idx` ,
+ADD INDEX `calculated_at_idx` (`calculated_at` ASC, `org_id` ASC, `person_id` ASC);

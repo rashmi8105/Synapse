@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Aivee",
+    "nick_name": "Youbridge",
+    "subdomain": "a8.net",
+    "status": " pending ",
+    "timezone": "Africa\/Casablanca"
+  },
+  {
+    "id": 2,
+    "name": "Kwinu",
+    "nick_name": "Photobean",
+    "subdomain": "comsenz.com",
+    "status": "approved ",
+    "timezone": "Europe\/Madrid"
+  },
+  {
+    "id": 3,
+    "name": "Meedoo",
+    "nick_name": "Skiptube",
+    "subdomain": "cdbaby.com",
+    "status": " ready",
+    "timezone": "Europe\/Berlin"
+  },
+  {
+    "id": 4,
+    "name": "Devbug",
+    "nick_name": "Devify",
+    "subdomain": "360.cn",
+    "status": " ready",
+    "timezone": "Asia\/Magadan"
+  },
+  {
+    "id": 5,
+    "name": "Jabbercube",
+    "nick_name": "Gigabox",
+    "subdomain": "jiathis.com",
+    "status": " ready",
+    "timezone": "Europe\/Moscow"
+  },
+  {
+    "id": 6,
+    "name": "Plambee",
+    "nick_name": "Gabspot",
+    "subdomain": "blog.com",
+    "status": " pending ",
+    "timezone": "Pacific\/Tongatapu"
+  },
+  {
+    "id": 7,
+    "name": "Eire",
+    "nick_name": "InnoZ",
+    "subdomain": "eventbrite.com",
+    "status": "approved ",
+    "timezone": "America\/Lima"
+  },
+  {
+    "id": 8,
+    "name": "Voonte",
+    "nick_name": "Zoombox",
+    "subdomain": "feedburner.com",
+    "status": " ready",
+    "timezone": "America\/La_Paz"
+  },
+  {
+    "id": 9,
+    "name": "Skivee",
+    "nick_name": "Jaxnation",
+    "subdomain": "discuz.net",
+    "status": " pending ",
+    "timezone": "Pacific\/Fakaofo"
+  },
+  {
+    "id": 10,
+    "name": "Ntags",
+    "nick_name": "Jazzy",
+    "subdomain": "hubpages.com",
+    "status": " pending ",
+    "timezone": "Europe\/Minsk"
+  }
+]

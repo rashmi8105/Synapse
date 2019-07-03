@@ -1,0 +1,34 @@
+imports:
+    - { resource: config.yml }
+    - { resource: parameters_uat.yml }
+
+#framework:
+#    validation:
+#        cache: apc
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: info
+            handler:      nested
+        nested:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type:  console
+
+swiftmailer:
+    transport:  smtp
+    host:       "%ses_host%"
+    port:       25
+    encryption: tls
+    username:   "%ses_access_key%"
+    password:   "%ses_secret_key%"

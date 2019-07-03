@@ -1,0 +1,32 @@
+CREATE OR REPLACE
+	ALGORITHM = MERGE
+	DEFINER = `synapsemaster`@`%`
+	SQL SECURITY INVOKER
+VIEW `person_survey_talking_points_calculated` AS
+	SELECT
+		ocftp.org_id AS org_id,
+		ocftp.person_id AS person_id,
+		tp.id AS talking_points_id,
+		tp.ebi_question_id AS ebi_question_id,
+		sr.survey_id AS survey_id,
+		tp.talking_points_type AS response,
+		sr.modified_at AS source_modified_at
+	FROM
+		talking_points tp
+		INNER JOIN survey_questions AS sq
+			ON tp.ebi_question_id = sq.ebi_question_id
+		INNER JOIN survey_response AS sr
+			ON sq.id = sr.survey_questions_id
+			   AND CASE
+				   WHEN sr.response_type = 'decimal'
+					   THEN sr.decimal_value
+				   END
+			   BETWEEN tp.min_range AND tp.max_range
+		INNER JOIN org_calc_flags_talking_point AS ocftp
+			ON sr.person_id = ocftp.person_id
+			   AND sr.org_id = ocftp.org_id
+	WHERE
+		tp.deleted_at IS NULL
+		AND sq.deleted_at IS NULL
+		AND sr.deleted_at IS NULL
+		AND ocftp.deleted_at IS NULL;

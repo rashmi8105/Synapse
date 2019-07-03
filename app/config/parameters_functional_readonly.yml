@@ -1,0 +1,27 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: ebi-synapse-prodcopy-20160621-enc-functional-testing.ccwh8pl3dfjy.us-east-1.rds.amazonaws.com
+    database_port: null
+    database_name: synapse
+    database_user: func.test
+    database_password: funct1on@l
+    database_driver_slave_1: pdo_mysql
+    database_host_slave_1: ~
+    database_port_slave_1: ~
+    database_name_slave_1: ~
+    database_user_slave_1: ~
+    database_password_slave_1: ~
+    mailer_transport: smtp
+    ses_host: localhost
+    ses_access_key: ~
+    ses_secret_key: ~
+    debug_toolbar: false
+    debug_redirects: false
+    use_assetic_controller: true
+    cache.host: synapse-qa-redis.internal.skyfactor.com
+    queue.host: ebi-synapse-qa-jobserver-1.internal.mnv-tech.com
+    tinyrbac_options:
+        enable_auth: true
+        cache_ttl: 90
+        longer_cache_ttl: 200

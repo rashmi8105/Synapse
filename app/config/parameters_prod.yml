@@ -1,0 +1,27 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: ~
+    database_port: null
+    database_name: ~
+    database_user: ~
+    database_password: ~
+    database_driver_slave_1: pdo_mysql
+    database_host_slave_1: ~
+    database_port_slave_1: ~
+    database_name_slave_1: ~
+    database_user_slave_1: ~
+    database_password_slave_1: ~
+    mailer_transport: smtp
+    ses_host: ~
+    ses_access_key: ~
+    ses_secret_key: ~
+    debug_toolbar: false
+    debug_redirects: false
+    use_assetic_controller: true
+    cache.host: ~
+    queue.host: ~
+    tinyrbac_options:
+      enable_auth: true
+      cache_ttl: 600
+      longer_cache_ttl: 1800

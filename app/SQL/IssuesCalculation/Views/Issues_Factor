@@ -1,0 +1,58 @@
+CREATE OR REPLACE
+    ALGORITHM = MERGE
+    DEFINER = synapsemaster@%
+    SQL SECURITY DEFINER
+VIEW Issues_Factors AS
+    SELECT
+        pfc.organization_id AS org_id,
+        pfc.person_id AS student_id,
+        pfc.survey_id AS survey_id,
+        iss.id AS issue_id,
+        wl.cohort_code AS cohort,
+        pfc.factor_id AS factor_id,
+        ISFS.faculty_id AS faculty_id,
+        pfc.mean_value AS permitted_value,
+        pfc.modified_at AS modified_at,
+        opsc.org_academic_year_id AS org_academic_year_id
+    FROM
+        org_faculty_student_permission_map ISFS
+        INNER JOIN org_person_student_survey_link opssl ON opssl.org_id = ISFS.org_id
+            AND opssl.person_id = ISFS.student_id
+            AND opssl.deleted_at IS NULL
+        INNER JOIN org_person_student_cohort opsc ON opsc.organization_id = opssl.org_id
+            AND opsc.person_id = opssl.person_id
+            AND opsc.cohort = opssl.cohort
+            AND opsc.org_academic_year_id = opssl.org_academic_year_id
+            AND opsc.deleted_at IS NULL
+        INNER JOIN person_factor_calculated pfc ON ISFS.student_id = pfc.person_id
+            AND ISFS.org_id = pfc.organization_id
+            AND opssl.survey_id = pfc.survey_id  /*This is a key performance line*/
+            AND pfc.deleted_at IS NULL
+        INNER JOIN issue iss ON iss.factor_id = pfc.factor_id
+            AND iss.survey_id = pfc.survey_id
+            AND iss.deleted_at IS NULL
+        INNER JOIN wess_link wl ON wl.survey_id = pfc.survey_id
+            AND wl.org_id = pfc.organization_id
+            AND wl.cohort_code = opssl.cohort
+            AND wl.status = 'closed'
+            AND wl.deleted_at IS NULL
+        INNER JOIN datablock_questions dq ON dq.factor_id = pfc.factor_id
+            AND dq.deleted_at IS NULL
+        INNER JOIN org_permissionset_datablock opd ON opd.organization_id = pfc.organization_id
+            AND opd.datablock_id = dq.datablock_id
+            AND opd.org_permissionset_id = ISFS.permissionset_id
+            AND opd.deleted_at IS NULL
+    WHERE
+        pfc.id = (
+			SELECT
+				fc.id
+			FROM
+			  person_factor_calculated fc
+    WHERE
+                fc.organization_id = pfc.organization_id
+                    AND fc.person_id = pfc.person_id
+                    AND fc.factor_id = pfc.factor_id
+                    AND fc.survey_id = pfc.survey_id
+                    AND fc.deleted_at IS NULL
+            ORDER BY fc.modified_at DESC
+            LIMIT 1);

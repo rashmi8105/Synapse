@@ -1,0 +1,2 @@
+bin/codecept run api /Loginapi.feature  --env training --xml scenario_report_0._api.xml --html scenario_report_0._api.html
+bin/codecept run api /StaticList.feature  --env training --xml scenario_report_1._api.xml --html scenario_report_1._api.html

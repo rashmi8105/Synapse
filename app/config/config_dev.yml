@@ -1,0 +1,56 @@
+imports:
+    - { resource: config.yml }
+    - { resource: parameters_dev.yml }
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing_dev.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: %debug_toolbar%
+    intercept_redirects: %debug_redirects%
+
+monolog:
+    handlers:
+        main:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+        console:
+            type:   console
+            bubble: false
+        # uncomment to get logging in your browser
+        # you may have to allow bigger header sizes in your Web server configuration
+        #firephp:
+        #    type:   firephp
+        #    level:  info
+        #chromephp:
+        #    type:   chromephp
+        #    level:  info
+
+assetic:
+    use_controller: %use_assetic_controller%
+
+#swiftmailer:
+#    delivery_address: me@example.com
+
+swiftmailer:
+    transport:  smtp
+    host:       "%ses_host%"
+    port:       25
+    encryption: tls
+    username:   "%ses_access_key%"
+    password:   "%ses_secret_key%"
+
+bazinga_faker:
+    orm: doctrine
+    entities:
+        Synapse\CoreBundle\Entity\Institution:
+            number: 5
+            custom_formatters:
+                subdomain: { method: domainName }
+                status: { method: randomElement, parameters: [['Active', 'Pending', 'Renew']]}
+                timezone: { method: timezone }
+                website: { method: domainName }

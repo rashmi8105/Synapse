@@ -1,0 +1,3 @@
+synapse_tools_tool:
+  type: rest
+  resource: "Synapse\MapworksToolBundle\Controller\\MapworksToolController"

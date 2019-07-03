@@ -1,0 +1,7 @@
+/*
+-- Query: SELECT * FROM synapse.email_template_lang
+LIMIT 0, 1000
+
+-- Date: 2014-12-05 17:55
+*/
+INSERT INTO `email_template_lang` (`id`,`email_template_id`,`language_id`,`created_by`,`created_at`,`modified_by`,`modified_at`,`deleted_by`,`deleted_at`,`body`,`subject`) VALUES (14,14,1,NULL,NULL,NULL,NULL,NULL,NULL,'<html>\r\n	<head>\r\n		<style>\r\n		body {\r\n    background: none repeat scroll 0 0 #f4f4f4;\r\n	\r\n}\r\n		table {\r\n    padding: 21px;\r\n    width: 799px;\r\n	font-family: helvetica,arial,verdana,san-serif;\r\n	font-size:13px;\r\n	color:#333;\r\n	}\r\n		</style>\r\n	</head>\r\n	<body>\r\n	\r\n		<table cellpadding=\"10\" style=\"background:#eeeeee;\" cellspacing=\"0\">\r\n			<tbody>\r\n			\r\n				<tr style=\"background:#fff;border-collapse:collapse;\"><td>Dear $$firstname$$:</td></tr>\r\n				<tr style=\"background:#fff;border-collapse:collapse;\"><td>A referral was recently assigned to you in MAP-Works. Please sign in to your account to view and take action on this referral.</td></tr>\r\n				<tr style=\"background:#fff;border-collapse:collapse;\"><td>Best regards,<br/>EBI MAP-Works</td></tr>\r\n				<tr style=\"background:#fff;border-collapse:collapse;\"><td>This email confirmation is an auto-generated message. Replies to automated messages are not monitored.</td></tr>\r\n			\r\n			</tbody>\r\n		</table>\r\n	</body>\r\n</html>','MAP-Works - You have a new referral [Referral_Assign_to_staff]');

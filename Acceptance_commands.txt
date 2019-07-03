@@ -1,0 +1,5 @@
+bin/codecept run acceptance Student/1_StudentAppointment.feature  --env training-chrome --xml scenario_report_0._acceptance.xml --html scenario_report_0._acceptance.html
+bin/codecept run acceptance Student/2_StudentCampusResource.feature  --env training-chrome --xml scenario_report_1._acceptance.xml --html scenario_report_1._acceptance.html
+bin/codecept run acceptance Student/3_StudentCourseAndAcademicUpdate.feature  --env training-chrome --xml scenario_report_2._acceptance.xml --html scenario_report_2._acceptance.html
+bin/codecept run acceptance Student/4_StudentReferral.feature  --env training-chrome --xml scenario_report_3._acceptance.xml --html scenario_report_3._acceptance.html
+bin/codecept run acceptance Student/5_StudentCampusConnection.feature  --env training-chrome --xml scenario_report_4._acceptance.xml --html scenario_report_4._acceptance.html

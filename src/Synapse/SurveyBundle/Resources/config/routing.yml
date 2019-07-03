@@ -1,0 +1,3 @@
+synapse_rest_cohorts:
+  type: rest
+  resource: "Synapse\SurveyBundle\Controller\\CohortsController"

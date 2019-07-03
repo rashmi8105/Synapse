@@ -1,0 +1,51 @@
+security:
+    encoders:
+      Synapse\CoreBundle\Entity\Person:
+        algorithm: bcrypt
+      Symfony\Component\Security\Core\User\User:
+        algorithm: bcrypt
+
+
+    providers:
+        in_memory:
+          memory:
+            users:
+              user:  { password: $2a$10$o/9Bq5ZzYCW2/Zl4JkQAXOKeqUh6TQkfZCSRVvj03xVUlifwgdBce, roles: [ 'ROLE_USER' ] }
+        user_provider:
+          id: synapse.user.provider
+
+    firewalls:
+        oauth_token:
+          pattern:    ^/oauth/v2/token
+          security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            form_login:
+              provider: user_provider
+              check_path: _security_check
+              login_path: _login
+            anonymous: true
+
+        doc:
+            pattern:    ^/api/doc
+            anonymous: true
+
+        sso:
+            pattern:    ^/api/v1/launch/redirect
+            security:   false
+            anonymous:  true
+
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  true # can be omitted as its default value
+
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        default:
+            anonymous: ~
+

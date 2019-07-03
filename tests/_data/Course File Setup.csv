@@ -1,0 +1,9 @@
+YearID,TermID,UniqueCourseSectionID,TermName,SubjectCode ,Coursenumber ,SectionNumber ,Coursename ,CreditHours ,CollegeCode ,DeptCode ,Days/Times ,Location 
+AY201617,1,11111,Term 1,MGMT1,101,1,Management 1,4,CAS,MGMT,MTWRF 9:00-9:50,Hall A
+AY201617,2,11112,Term 1,PHYS1,102,2,Physics 1,4,CAS,PHYS,MTWRF 9:00-9:50,Hall B
+AY201617,3,11113,Term 1,COM1,103,1,Commerce 1,4,CAS,COM,MTWRF 9:00-9:50,Hall C
+AY201617,4,11114,Term 1,SCI1,104,2,Science 1,4,CAS,SCI,MTWRF 9:00-9:50,Hall D
+AY201617,5,11115,Term 2,MGMT2,105,1,Management 1,4,CAS,MGMT,TR 8:00 - 9:30,Hall E
+AY201617,6,11116,Term 2,PHYS2,106,2,Physics 1,4,CAS,PHYS,TR 8:00 - 9:30,Hall F
+AY201617,7,11117,Term 2,COM2,107,1,Commerce 1,4,CAS,COM,TR 8:00 - 9:30,Hall G
+AY201617,8,11118,Term 2,SCI2,108,2,Science 1,4,CAS,SCI,TR 8:00 - 9:30,Hall H

@@ -1,0 +1,23 @@
+emailauth:
+    path:     /email/{username}
+    defaults: { _controller: SynapseAuthenticationBundle:EmailAuth:index }
+
+sendauthmail:
+    path:     /sendauthmail/{email}
+    defaults: { _controller: SynapseAuthenticationBundle:EmailAuth:sendAuthMail }
+
+synapse_auth_portal:
+  type: rest
+  resource: "Synapse\AuthenticationBundle\Controller\\PortalController"
+
+synapse_auth_settings:
+  type: rest
+  resource: "Synapse\AuthenticationBundle\Controller\\SettingsController"
+
+synapse_auth_saml:
+  type: rest
+  resource: "Synapse\AuthenticationBundle\Controller\\SamlController"
+  
+emailauth_academicUpdate:
+    path:     /email/{username}/academicupdate
+    defaults: { _controller: SynapseAuthenticationBundle:EmailAuth:academicUpdateStudentLogin }

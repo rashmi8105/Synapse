@@ -1,0 +1,5 @@
+TestCase,TestCaseID,StatusID,Message
+"StudentUpload: Verify student can access the skyfactor application","1109638 ",1,"This Test Case is Passed"
+"StudentUpload: Verify Student is able to upload student in the application","1109639 ",5,"This Test Is Failed 
+
+Failed asserting that an array is not empty."

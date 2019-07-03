@@ -1,0 +1,1 @@
+INSERT INTO `ebi_config` (`id`,`created_by`,`created_at`,`modified_by`,`modified_at`,`deleted_by`,`deleted_at`,`key`,`value`) VALUES (13,NULL,NULL,NULL,NULL,NULL,NULL,'StaffDashboard_AppointmentPage','http://synapse-dev.mnv-tech.com/#/stff');

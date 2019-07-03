@@ -1,0 +1,3 @@
+yearid,termid,uniquecoursesectionid,subjectcode,coursenumber,sectionnumber,coursename,credithours,collegecode,deptcode,days/times,location,"Upload Errors"
+201718,Fall2017,12345,11,12,31,geoddd,"Here goes a car",1,2,Thursday,noida,"Credit Hours - CreditHours must be numeric.
+"

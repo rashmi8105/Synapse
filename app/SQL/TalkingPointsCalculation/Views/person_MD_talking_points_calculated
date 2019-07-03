@@ -1,0 +1,25 @@
+CREATE OR REPLACE
+    ALGORITHM = MERGE
+    DEFINER = `synapsemaster`@`%`
+    SQL SECURITY INVOKER
+VIEW `person_MD_talking_points_calculated` AS
+    SELECT
+        ocftp.org_id AS org_id,
+        ocftp.person_id AS person_id,
+        tp.id AS talking_points_id,
+        pem.ebi_metadata_id AS ebi_metadata_id,
+        pem.org_academic_year_id AS org_academic_year_id,
+        pem.org_academic_terms_id AS org_academic_terms_id,
+        tp.talking_points_type AS response,
+        pem.modified_at AS source_modified_at
+    FROM
+        talking_points tp
+        INNER JOIN person_ebi_metadata AS pem
+            ON tp.ebi_metadata_id = pem.ebi_metadata_id
+               AND pem.metadata_value BETWEEN tp.min_range AND tp.max_range
+        INNER JOIN org_calc_flags_talking_point ocftp
+            ON pem.person_id = ocftp.person_id
+    WHERE
+        tp.deleted_at IS NULL
+        AND pem.deleted_at IS NULL
+        AND ocftp.deleted_at IS NULL;

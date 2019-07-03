@@ -1,0 +1,14 @@
+class_name: ApiTester
+modules:
+    enabled:
+        - REST:
+            url: https://mapworks-training-api.skyfactor.com/
+            depends: PhpBrowser
+        - \Helper\Api
+gherkin:
+    contexts:
+        default: 
+            - ApiTester
+            - Step\Api\Loginapi
+            - Step\Api\staticList
+            

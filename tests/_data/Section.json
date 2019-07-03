@@ -1,0 +1,47 @@
+[
+    {
+        "id": 77679,
+        "suite_id": 1332,
+        "name": "Test Cases",
+        "description": null,
+        "parent_id": null,
+        "display_order": 1,
+        "depth": 0
+    },
+    {
+        "id": 84171,
+        "suite_id": 1332,
+        "name": "Login",
+        "description": null,
+        "parent_id": 77679,
+        "display_order": 2,
+        "depth": 1
+    },
+    {
+        "id": 84169,
+        "suite_id": 1332,
+        "name": "Static List",
+        "description": null,
+        "parent_id": 77679,
+        "display_order": 3,
+        "depth": 1
+    },
+    {
+        "id": 84170,
+        "suite_id": 1332,
+        "name": "System Alert",
+        "description": null,
+        "parent_id": 77679,
+        "display_order": 4,
+        "depth": 1
+    },
+    {
+        "id": 84173,
+        "suite_id": 1332,
+        "name": "StudentUpload",
+        "description": null,
+        "parent_id": 77679,
+        "display_order": 5,
+        "depth": 1
+    }
+]

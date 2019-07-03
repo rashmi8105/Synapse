@@ -1,0 +1,179 @@
+synapse_rest_profile:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\ProfileController"
+synapse_rest_upload:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\UploadController"
+synapse_rest_systemAlert:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\SystemAlertController"
+synapse_rest_Organization:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\OrganizationController"
+synapse_rest_groups:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\GroupController"
+synapse_rest_coordinators:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\CoordinatorController"
+synapse_rest_feature:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\FeatureController"
+synapse_rest_Person:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\PersonController"
+synapse_rest_Teams:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\TeamController"
+synapse_rest_Password:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\PasswordController"
+synapse_rest_Myaccount:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\MyAccountController"
+synapse_rest_accesslog:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\AccessLogController"
+synapse_rest_Util:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\UtilController"
+synapse_rest_datablock:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\OrgDataBlockController"
+synapse_rest_orgpermissionset:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\OrgPermissionSetController"
+synapse_rest_PermissonSet:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\PermissionSetController"
+synapse_rest_Notes:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\NotesController"
+synapse_rest_referral:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\ReferralController"
+synapse_rest_contacts:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\ContactsController"
+synapse_rest_permission:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\PermissionController"
+synapse_rest_booking:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\BookingController"
+synapse_rest_appointments:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\AppointmentsController"
+synapse_rest_survey:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\SurveyController"
+synapse_rest_alertNotifications:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\AlertNotificationsController"
+synapse_rest_faculty:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\FacultyController"
+synapse_rest_student:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\StudentController"
+synapse_rest_priorityStudents:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\PriorityController"
+synapse_rest_launch:
+  type: rest
+  resource: "Synapse\GatewayBundle\Controller\\LaunchController"
+synapse_rest_associate:
+  type: rest
+  resource: "Synapse\GatewayBundle\Controller\\AssociateController"
+synapse_rest_risks:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\RisksController" 
+synapse_rest_search:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\SearchController"
+synapse_rest_savedsearches:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\SavedSearchController"
+synapse_rest_sharedsearch:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\SharedSearchController"
+synapse_rest_academicterm:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\AcademicTermController"    
+synapse_rest_academicYear:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\AcademicYearController"
+synapse_rest_courses:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\CoursesController"
+synapse_rest_profileblocks:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\ProfileBlocksController"
+synapse_rest_coursesupload:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\CoursesUploadController"
+synapse_rest_talkingpoints:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\TalkingPointsController"
+synapse_rest_surveyblocks:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\SurveyBlockController"
+synapse_rest_tiers:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\TierController"
+synapse_rest_campus:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\CampusController"
+synapse_rest_users:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\UsersController"
+synapse_rest_officehours:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\OfficeHoursController"
+synapse_rest_predefinedsearch:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\PredefinedSearchController"
+synapse_rest_campusconnection:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\CampusConnectionController"
+synapse_rest_riskupload:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\RiskUploadController"
+synapse_rest_groupupload:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\GroupUploadController"
+synapse_rest_pdf:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\PdfController"
+synapse_rest_Proxy:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\ProxyController"
+synapse_rest_issues:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\IssueController"
+
+synapse_rest_FactorUpload:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\FactorUploadController"
+synapse_rest_factors:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\FactorsController"
+synapse_rest_ldaplogin:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\LdapLoginController"
+synapse_rest_emailactivity:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\EmailController"
+synapse_rest_adminuser:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\AdminUsersController"  
+synapse_rest_retentioncompletion:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\RetentionCompletionController"
+synapse_rest_notificationchannel:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\NotificationChannelController"
+synapse_rest_logging:
+  type: rest
+  resource: "Synapse\RestBundle\Controller\\LoggingController"
+  

@@ -1,0 +1,12 @@
+{
+  "Directory": [
+    {
+      "Dir": "Login",
+      "instances": "2"
+    },
+    {
+      "Dir": "StaticList",
+      "instances": "2"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+CREATE OR REPLACE
+    ALGORITHM = MERGE
+    DEFINER = synapsemaster@%
+    SQL SECURITY DEFINER
+VIEW Issues_Survey_Questions AS
+    SELECT
+        sr.org_id AS org_id,
+        sr.person_id AS student_id,
+        sr.survey_id AS survey_id,
+        iss.id AS issue_id,
+        wl.cohort_code AS cohort,
+        sq.id AS survey_question_id,
+        sq.ebi_question_id AS ebi_question_id,
+        ISFS.faculty_id AS faculty_id,
+        sr.decimal_value AS permitted_value,
+        sr.modified_at AS modified_at,
+        sr.org_academic_year_id as org_academic_year_id
+    FROM
+        org_faculty_student_permission_map ISFS
+        INNER JOIN org_person_student_survey_link opssl ON ISFS.org_id = opssl.org_id
+            AND opssl.person_id = ISFS.student_id
+            AND opssl.deleted_at IS NULL
+        INNER JOIN survey_response sr FORCE INDEX (FK_SURVEY_RESPONSE_ORGANIZATION1) ON ISFS.student_id = sr.person_id
+            AND ISFS.org_id = sr.org_id
+            AND opssl.org_academic_year_id = sr.org_academic_year_id
+            AND sr.deleted_at IS NULL
+        INNER JOIN org_person_student_cohort opsc ON opsc.organization_id = sr.org_id
+            AND opsc.person_id = sr.person_id
+            AND opsc.org_academic_year_id = sr.org_academic_year_id
+            AND opsc.cohort = opssl.cohort
+            AND opsc.deleted_at IS NULL
+        INNER JOIN issue iss ON iss.survey_questions_id = sr.survey_questions_id
+            AND iss.survey_id = sr.survey_id
+            AND iss.deleted_at IS NULL
+        INNER JOIN survey_questions sq ON sr.survey_questions_id = sq.id
+            AND sq.survey_id = sr.survey_id
+            AND sq.deleted_at IS NULL
+        INNER JOIN ebi_question eq ON sq.ebi_question_id = eq.id
+            AND eq.deleted_at IS NULL
+        INNER JOIN datablock_questions dq USE INDEX (PERMFUNC) ON dq.ebi_question_id = eq.id
+            AND dq.deleted_at IS NULL
+        INNER JOIN org_permissionset_datablock opd ON opd.organization_id = sr.org_id
+            AND opd.datablock_id = dq.datablock_id
+            AND opd.org_permissionset_id = ISFS.permissionset_id
+            AND opd.deleted_at IS NULL
+        INNER JOIN wess_link wl ON wl.survey_id = sr.survey_id
+            AND wl.org_id = sr.org_id
+            AND wl.cohort_code = opsc.cohort
+            AND wl.status = 'closed'
+            AND wl.deleted_at IS NULL;

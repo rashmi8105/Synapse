@@ -1,0 +1,32 @@
+CREATE OR REPLACE
+    ALGORITHM = UNDEFINED
+    DEFINER = synapsemaster@%
+    SQL SECURITY DEFINER
+VIEW Issues_Datum AS
+    SELECT
+        ofs.organization_id AS org_id,
+        ofs.person_id AS faculty_id,
+        COALESCE(ISQ.survey_id, ISF.survey_id) AS survey_id,
+        COALESCE(ISQ.student_id, ISF.student_id) AS student_id,
+        COALESCE(ISQ.issue_id, ISF.issue_id) AS issue_id,
+        COALESCE(ISQ.cohort, ISF.cohort) AS cohort,
+        CU.datum_type AS type,
+        COALESCE(ISQ.survey_question_id,
+                ISF.factor_id) AS source_id,
+        COALESCE(ISQ.permitted_value,
+                ISF.permitted_value) AS source_value,
+        COALESCE(ISQ.org_academic_year_id,
+            ISF.org_academic_year_id) AS org_academic_year_id,
+        COALESCE(ISQ.modified_at, ISF.modified_at) AS modified_at
+    FROM
+        org_person_faculty ofs
+		JOIN Factor_Question_Constants CU
+        LEFT JOIN Issues_Survey_Questions ISQ ON CU.datum_type = 'Question'
+            AND ofs.person_id = ISQ.faculty_id
+            AND ofs.organization_id = ISQ.org_id
+        LEFT JOIN Issues_Factors ISF ON CU.datum_type = 'Factor'
+            AND ofs.person_id = ISF.faculty_id
+            AND ofs.organization_id = ISF.org_id
+    WHERE
+        ISQ.permitted_value IS NOT NULL
+		OR ISF.permitted_value IS NOT NULL;

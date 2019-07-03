@@ -1,0 +1,16 @@
+parameters:
+#    synapse_rest.example.class: Synapse\RestBundle\Example
+
+services:
+#    synapse_rest.example:
+#        class: %synapse_rest.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+  tinyrbac:
+    class: Synapse\CoreBundle\Security\Authorization\TinyRbac\Rbac
+  tinyrbac.manager:
+    class: Synapse\CoreBundle\Security\Authorization\TinyRbac\Manager    
+    arguments: [@doctrine.orm.entity_manager, @session, @security.context, @synapse_redis_cache, @orgpermissionset_service, @service_container, @tinyrbac, %tinyrbac_options%]
+  tinyrbac.voter:
+    class: Synapse\CoreBundle\Security\Authorization\TinyRbac\RbacVoter
+    arguments: [@session]

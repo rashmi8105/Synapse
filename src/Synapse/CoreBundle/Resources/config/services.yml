@@ -1,0 +1,29 @@
+parameters:
+  synapse.repository.resolver.class: Synapse\CoreBundle\Repository\RepositoryResolver
+  synapse.user.provider.class: Synapse\CoreBundle\Security\User\UserProvider
+
+services:
+  synapse.user.provider:
+    class: "%synapse.user.provider.class%"
+    arguments:
+      arguments: "@repository_resolver"
+
+  security.access.rbac_voter:
+    class: Synapse\CoreBundle\Security\Authorization\TinyRbac\RbacVoter
+    arguments: [@session]
+    public: false
+    tags:
+      - { name: security.voter }
+
+  permissionset_service:
+    class: Synapse\CoreBundle\Service\Impl\OrgPermissionsetService
+  tinyrbac:
+    class: Synapse\CoreBundle\Security\Authorization\TinyRbac\Rbac
+  tinyrbac.manager:
+    class: Synapse\CoreBundle\Security\Authorization\TinyRbac\Manager
+    arguments: [@doctrine.orm.entity_manager, @session, @security.context, @synapse_redis_cache, @orgpermissionset_service, @service_container, @tinyrbac, %tinyrbac_options%]
+
+  synapse.logger.otrprocessor:
+    class: Synapse\CoreBundle\Logger\OTRProcessor
+    tags: 
+      - { name: monolog.processor }

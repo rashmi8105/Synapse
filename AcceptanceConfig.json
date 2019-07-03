@@ -1,0 +1,24 @@
+{
+  "Directory": [
+    {
+      "Dir": "Faculty",
+      "instances": "4"
+    },
+    {
+      "Dir": "Student",
+      "instances": "4"
+    },
+    {
+      "Dir": "CoordinatorGroup1",
+      "instances": "8"
+    },
+    {
+      "Dir": "CoordinatorGroup2",
+      "instances": "8"
+    },
+    {
+      "Dir": "CoordinatorGroup3",
+      "instances": "1"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+TestCase,TestCaseID,StatusID,Message
+"Loginapi: Try to login through Api",,1,"This Test Case is Passed"
+"StaticList: Create Static List",,5,"This Test Is Failed 
+
+REST response contains"

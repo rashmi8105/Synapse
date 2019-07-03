@@ -1,0 +1,16 @@
+[
+    {
+        "organization_id": 1,
+        "is_referral_enabled": false,
+        "is_student_referral_notification_enabled": true,
+        "is_reason_routing_enabled": true,
+        "primary_coordinators": {
+            "academic_concerns": "everyone",
+            "personal_issues": "everyone",
+            "financial_issues": "everyone"
+        },
+        "is_notes_enabled": false,
+        "is_log_contacts_enabled": false,
+        "is_booking_enabled": true
+    }
+]

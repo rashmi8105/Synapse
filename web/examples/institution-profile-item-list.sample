@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "organization_id": 1,
+        "item_label": "WayneMeyer",
+        "item_subtext": "JeffreyHowell",
+        "sequence_no": 1,
+        "item_data_type": "Text"
+    },
+    {
+        "id": 2,
+        "organization_id": 1,        
+        "item_label": "MaryRoberts",
+        "item_subtext": "KevinCox",
+        "sequence_no": 2,
+        "item_data_type": "Date"
+    },
+    {
+        "id": 3,
+        "organization_id": 1,        
+        "item_label": "FredCarroll",
+        "item_subtext": "DorisGraham",
+        "sequence_no": 3,
+        "item_data_type": "Number"
+    },
+    {
+        "id": 4,
+        "organization_id": 1,        
+        "item_label": "AnneFernandez",
+        "item_subtext": "EricEdwards",
+        "sequence_no": 4,
+        "item_data_type": "Text"
+    },
+    {
+        "id": 5,
+        "organization_id": 1,        
+        "item_label": "CarolWhite",
+        "item_subtext": "MelissaDaniels",
+        "sequence_no": 5,
+        "item_data_type": "Number"
+    }
+]

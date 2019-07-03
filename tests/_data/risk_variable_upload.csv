@@ -1,0 +1,4 @@
+RiskVarName,RiskVarType,Calculated,SourceType,CampusID,SourceID,B1Min,B1Max,B2Min,B2Max,B3Min,B3Max,B4Min,B4Max,B5Min,B5Max,B6Min,B6Max,B7Min,B7Max,B1Cat,B2Cat,B3Cat,B4Cat,B5Cat,B6Cat,B7Cat,CalcType,CalMin,CalMax
+RV-Profile,continuous,Yes,profile,,DOB,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,,,,,,,,Sum,05/20/2015,05/31/2015
+RV-questionbank-ORG,continuous,Yes,surveyquestion,,1-1,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,,,,,,,,Sum,05/20/2015,05/31/2015
+CatCheck,categorical,Yes,ISP,ORG1,AGE,,,,,,,,,,,,,,,,Two;cat,Three,Four,Five ,Six,Seven,Average,05/20/2015,05/31/2015

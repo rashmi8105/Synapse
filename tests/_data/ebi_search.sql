@@ -1,0 +1,13 @@
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (1, 'My_High_priority_students_Count', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (2, 'My_Total_Students_Count_Groupby_Risk', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (3, 'My_High_priority_students_List', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (4, 'My_Total_students_List', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (5, 'My_Team_Open_Referrals_count_Groupby_Teams', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (6, 'My_Team_Interactions_count_Groupby_Teams', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (7, 'My_Team_Logins_Count_Groupby_Teams', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (8, 'My_Team_Open_Referrals_List', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (9, 'My_Team_Interactions_List', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (10, 'My_Team_Logins_List', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (11, 'My_Open_Referrals_Received_List', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (12, 'My_Open_Referrals_Sent_Count', 'S', 1, "");
+INSERT INTO `synapse`.`ebi_search` (`id`, `query_key`, `search_type`, `is_enabled`, `query`) VALUES (13, 'Dashboard_top_issues_count', 'S', 1, "");

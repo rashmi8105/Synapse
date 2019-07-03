@@ -1,0 +1,6 @@
+synapse_rest_campusresource:
+  type: rest
+  resource: "Synapse\CampusResourceBundle\Controller\\CampusResourceController"
+synapse_rest_campusannouncement:
+  type: rest
+  resource: "Synapse\CampusResourceBundle\Controller\\CampusAnnouncementController"  

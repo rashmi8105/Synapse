@@ -1,0 +1,104 @@
+[
+    {
+        "organization_id": 1,
+        "parent_group_id": 1,
+        "parent_group_name": "justo",
+        "students_count": 19,
+        "staff_list": [
+            {
+                "staff_id": 45,
+                "staff_name": "Nicole Jones",
+                "staff_permissionset_name": "vel",
+                "staff_permissionset_id": 57
+            },
+            {
+                "staff_id": 18,
+                "staff_name": "Evelyn Hernandez",
+                "staff_permissionset_name": "parturient",
+                "staff_permissionset_id": 45
+            },
+            {
+                "staff_id": 39,
+                "staff_name": "Anne Clark",
+                "staff_permissionset_name": "ullamcorper",
+                "staff_permissionset_id": 78
+            },
+            {
+                "staff_id": 68,
+                "staff_name": "Margaret Warren",
+                "staff_permissionset_name": "amet",
+                "staff_permissionset_id": 29
+            },
+            {
+                "staff_id": 5,
+                "staff_name": "Louise Myers",
+                "staff_permissionset_name": "ridiculus",
+                "staff_permissionset_id": 91
+            }
+        ],
+        "sub_groups": [
+            {
+                "group_id": 1,
+                "group_name": "massa",
+                "students_count": 31,
+                "staff_list": [
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Sarah Garza",
+                        "staff_permissionset_id": 48,
+                        "staff_permissionset_name": "consectetuer"
+                    },
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Philip Murray",
+                        "staff_permissionset_id": 92,
+                        "staff_permissionset_name": "primis"
+                    },
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Brenda Watson",
+                        "staff_permissionset_id": 32,
+                        "staff_permissionset_name": "augue"
+                    }
+                ]
+            },
+            {
+                "group_id": 2,
+                "group_name": "viverra",
+                "students_count": 69,
+                "staff_list": [
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Lisa Perry",
+                        "staff_permissionset_id": 32,
+                        "staff_permissionset_name": "nisl"
+                    },
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Kevin Ryan",
+                        "staff_permissionset_id": 26,
+                        "staff_permissionset_name": "rhoncus"
+                    },
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Judy Phillips",
+                        "staff_permissionset_id": 76,
+                        "staff_permissionset_name": "eget"
+                    },
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Kenneth Allen",
+                        "staff_permissionset_id": 65,
+                        "staff_permissionset_name": "vivamus"
+                    },
+                    {
+                        "staff_id": 1,
+                        "staff_name": "Chris Thompson",
+                        "staff_permissionset_id": 13,
+                        "staff_permissionset_name": "dolor"
+                    }
+                ]
+            }
+        ]
+    }
+]

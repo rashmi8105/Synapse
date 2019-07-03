@@ -1,0 +1,13 @@
+synapse_rest_risk_variable:
+  type: rest
+  resource: "Synapse\RiskBundle\Controller\\RiskVariableController"
+synapse_rest_risk_model:
+  type: rest
+  resource: "Synapse\RiskBundle\Controller\\RiskModelController"
+synapse_rest_risk_group:
+  type: rest
+  resource: "Synapse\RiskBundle\Controller\\RiskGroupController"
+synapse_rest_risk_calculation:
+  type: rest
+  resource: "Synapse\RiskBundle\Controller\\RiskCalculationController"
+

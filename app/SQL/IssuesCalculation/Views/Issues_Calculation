@@ -1,0 +1,24 @@
+CREATE OR REPLACE
+    ALGORITHM = UNDEFINED
+    DEFINER = synapsemaster@%
+    SQL SECURITY DEFINER
+VIEW Issues_Calculation AS
+    SELECT
+        theID.org_id AS org_id,
+        theID.faculty_id AS faculty_id,
+        theID.survey_id AS survey_id,
+        theID.issue_id AS issue_id,
+        theID.cohort AS cohort,
+        theID.student_id AS student_id,
+        IFNULL(((theID.source_value BETWEEN iss.min AND iss.max)
+                    OR (CAST(theID.source_value AS UNSIGNED) = eqo.option_value)),
+                0) AS has_issue,
+        theID.org_academic_year_id as org_academic_year_id,
+        issl.name AS name,
+        iss.icon AS icon
+    FROM
+        Issues_Datum theID
+        JOIN issue iss ON iss.id = theID.issue_id
+        LEFT JOIN issue_lang issl ON iss.id = issl.issue_id
+        LEFT JOIN issue_options issO ON iss.id = issO.issue_id
+        LEFT JOIN ebi_question_options eqo ON eqo.id = issO.ebi_question_options_id;

@@ -1,0 +1,11 @@
+synapse_rest_help:
+  type: rest
+  resource: "Synapse\HelpBundle\Controller\\HelpController"
+
+synapse_rest_tickets:
+  type: rest
+  resource: "Synapse\HelpBundle\Controller\\TicketsController"
+
+synapse_rest_zendesk:
+  type: rest
+  resource: "Synapse\HelpBundle\Controller\\ZendeskController"

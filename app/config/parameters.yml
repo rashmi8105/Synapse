@@ -1,0 +1,25 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: synapse
+    database_user: root
+    database_password: synapse
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    ses_host: localhost
+    ses_access_key: null
+    ses_secret_key: null
+    locale: en
+    secret: c3hCqD3bwpYfAU8PBDqTWAF6
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
+    amazon_s3.key: AKIAJJWBI4AF5T4VLVSA
+    amazon_s3.secret: 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
+    amazon_s3.region: us-east-1
+    cache.host: 127.0.0.1
+    queue.host: 127.0.0.1

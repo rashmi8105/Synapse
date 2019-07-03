@@ -1,0 +1,9 @@
+synapse_rest_reports:
+  type: rest
+  resource: "Synapse\ReportsBundle\Controller\\ReportsController"
+synapse_rest_studentreports:
+  type: rest
+  resource: "Synapse\ReportsBundle\Controller\\StudentReportController"
+synapse_rest_myreports:
+  type: rest
+  resource: "Synapse\ReportsBundle\Controller\\MyReportsController"

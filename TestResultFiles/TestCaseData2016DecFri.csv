@@ -1,0 +1,8 @@
+TestCase,TestCaseID,StatusID,Message
+"Login: Verify Coordinator can access the skyfactor application","1109638 ",1,"This Test Case is Passed"
+"StaticList: Verify student can access the skyfactor application","1109638 ",1,"This Test Case is Passed"
+"StaticList: Verify user can create Static List","1109634 ",1,"This Test Case is Passed"
+"StaticList: Verify user can edit Static List","1109635 ",1,"This Test Case is Passed"
+"StaticList: Verify user can delete Static List","1109636 ",1,"This Test Case is Passed"
+"StudentUpload: Verify Student is able to upload student in the application","1109639 ",1,"This Test Case is Passed"
+"SystemAlert: Verify user can Create System Alert","1109637 ",1,"This Test Case is Passed"

@@ -1,0 +1,3 @@
+synapse_rest_static_list:
+  type: rest
+  resource: "Synapse\StaticListBundle\Controller\\StaticListController"

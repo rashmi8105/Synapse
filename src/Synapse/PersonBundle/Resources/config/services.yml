@@ -1,0 +1,4 @@
+services:
+#    synapse_person.example:
+#        class: PersonBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

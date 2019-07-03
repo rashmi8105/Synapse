@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "item_label": "Pamela Edwards",
+        "item_subtext": "Gloria Mcdonald",
+        "sequence_no": 1,
+        "item_data_type": "Teresa Nguyen",
+        "number_type": {
+            "min_digits": 3,
+            "max_digits": 8,
+            "decimal_points": 2
+        },
+        "category_type": {
+            "category_label": [
+                {
+                    "label": "label1",
+                    "answer": "Karen Sims",
+                    "value": "Angela Wallace",
+                    "sequence_no": 1
+                },
+                {
+                    "label": "label2",
+                    "answer": "Karen Sims1",
+                    "value": "Angela Wallace1",
+                    "sequence_no": 2
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,313 @@
+#%RAML 0.8
+---
+title: Synapse API
+baseUri: http://synapse.com/api/{version}/lms
+version: v1
+mediaType: application/json
+
+/authorize:
+  get:
+    headers:
+      username:
+        displayName: User Name
+        type: string
+        description: user name registered with MNV Gateway.
+        example: synapse
+        required: true
+      shared_secret: 
+        displayName: Shared Secret
+        type: string
+        description: secret key shared by MNV Gateway.
+        example: ex!m)23PN13a(444
+        required: true
+    description: |
+      Authtentication Service
+    responses:
+      200:
+        body:
+          example: |
+            {
+              "action" : "Success",
+              "redirectURL" : "http://synapse.com/api/v1/lms/validate-and-launch"
+            }
+        description: |
+          successful authentication with Synapse returns action and redirectURL
+          Possible action are 
+            Success - Everything with the authorization was fine
+            Association -  The user (user_id) has not associated with your Synapse in the past
+            NotRegistered - The user is not registered in your Synapse
+            SubscriptionExpired - The user is registered, but their subscription has expired
+            Exception - Something wrong....Check it out...
+/launchhandler:
+  post:
+    description: |
+      Validate access token and launch Synapse application
+    queryParameters:
+      access_token:
+        displayName: Access Token
+        description: "Access Token provided by the Synapse OAuthService"
+        type: string
+        required: true
+        example: 23axIHJOJd93j%$
+      redirect_url:
+        displayName: Redirect URL
+        description: "Synapse Launch URL"
+        type: string
+        required: true
+        example: "http://syanpse.com/map-works"
+    responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  { "data": "Synapse Home page" }
+
+/lmsdataprocessor:
+  post:
+    description: |
+      Parse LMS data and store them into application tables
+    queryParameters:
+      access_token:
+        displayName: Access Token
+        description: "Access Token provided by the Synapse OAuthService"
+        type: string
+        required: true
+        example: 23axIHJOJd93j%$
+      lms_data:
+        displayName: LMS data
+        description: "LMS pull data"
+        type: string
+        required: true
+        example: "http://syanpse.com/map-works"
+    responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  { "data": "Synapse Home page" }  
+
+/courses:
+  /{courseId}:
+      uriParameters:
+        courseId:
+          displayName: Course ID
+          type: string
+          description: |
+            Course ID
+      /enrolledUsers:
+        get:
+          description: |
+            Retrieve an array of all users including students, staff / faculty, research assistants, admin staff.
+          responses:
+            200:
+              body:
+                schema: |
+                 {
+                    "type": "object",
+                    "$schema": "http://json-schema.org/draft-03/schema",
+                    "id": "http://jsonschema.net",
+                    "required":false,
+                    "properties": {
+                      "userId": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "enrolledDate": {
+                        "type": "date",
+                        "required": true
+                      },
+                      "userFirstName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "userLastName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "role": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  } 
+      /students:
+        get:
+          description: |
+            Retrieve an array of all students enrolled in course.
+          responses:
+            200:
+              body:
+                schema: |
+                 {
+                    "type": "object",
+                    "$schema": "http://json-schema.org/draft-03/schema",
+                    "id": "http://jsonschema.net",
+                    "required":false,
+                    "properties": {
+                      "userId": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "userFirstName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "userLastName": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }       
+      /droppedstudents:
+        get:
+          description: |
+            Retrieve an array of dropped students from a course.
+          responses:
+            200:
+              body:
+                schema: |
+                 {
+                    "type": "object",
+                    "$schema": "http://json-schema.org/draft-03/schema",
+                    "id": "http://jsonschema.net",
+                    "required":false,
+                    "properties": {
+                      "userId": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "userFirstName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "userLastName": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }  
+      /instructors:
+        get:
+          description: |
+            Retrieve an array of instructors for a course.
+          responses:
+            200:
+              body:
+                schema: |
+                 {
+                    "type": "object",
+                    "$schema": "http://json-schema.org/draft-03/schema",
+                    "id": "http://jsonschema.net",
+                    "required":false,
+                    "properties": {
+                      "userId": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "userFirstName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "userLastName": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }  
+/users:
+  /{userId}:
+      uriParameters:
+        userId:
+          displayName: Student LMS ID
+          type: string
+          description: |
+            "Student LMS ID"
+      /courses:
+       get:
+          description: |
+            Retrieve an array of courses that a Student enrolled with
+          responses:
+            200:
+              body:
+                schema: |
+                 {
+                    "type": "object",
+                    "$schema": "http://json-schema.org/draft-03/schema",
+                    "id": "http://jsonschema.net",
+                    "required":false,
+                    "properties": {
+                      "courseId": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "href": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "courseName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "courseStartDate": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "courseEndDate": {
+                        "type": "string",
+                        "required": true
+                      }
+                    }
+                  }       
+      /grades:
+        get:
+          description: |
+            Retrieve a Student's grade for a course
+          queryParameters:
+            courseId:
+              displayName: Course LMS ID
+              type: string
+              required: true
+          responses:
+            200:
+              body:
+                schema: |
+                  {
+                   "type": "object",
+                    "$schema": "http://json-schema.org/draft-03/schema",
+                    "id": "http://jsonschema.net",
+                    "required":false,
+                    "properties": {
+                      "userId": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "courseId": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "href": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "courseName": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "creditsEarned": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "gradeLetter": {
+                        "type": "string",
+                        "required": true
+                      },
+                      "commentByInstructor": {
+                        "type": "string",
+                        "required":true
+                      },
+                      "shareWithStudent": {
+                        "type": "boolean",
+                        "required":true
+                      }                                            
+                    }                  
+                  }
